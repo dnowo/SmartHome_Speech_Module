@@ -44,34 +44,14 @@ namespace SHSM
         {
             if (e.Result == null) return;
 
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine(GetValue(e.Result.Semantics, "Aktywnosc"));
-            System.Diagnostics.Trace.WriteLine(GetConfidence(e.Result.Semantics, "Aktywnosc"));
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine(GetValue(e.Result.Semantics, "Waga"));
-            System.Diagnostics.Trace.WriteLine(GetConfidence(e.Result.Semantics, "Waga"));
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine(GetValue(e.Result.Semantics, "Wzrost"));
-            System.Diagnostics.Trace.WriteLine(GetConfidence(e.Result.Semantics, "Wzrost"));
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine(GetValue(e.Result.Semantics, "Plec"));
-            System.Diagnostics.Trace.WriteLine(GetConfidence(e.Result.Semantics, "Plec"));
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine("----------");
-            System.Diagnostics.Trace.WriteLine(GetValue(e.Result.Semantics, "Wiek"));
-            System.Diagnostics.Trace.WriteLine(GetConfidence(e.Result.Semantics, "Wiek"));
+            System.Diagnostics.Trace.WriteLine(GetValue(e.Result.Semantics, "TurnOnLightInRoom"));
+            System.Diagnostics.Trace.WriteLine(GetConfidence(e.Result.Semantics, "TurnOnLightInRoom"));
             System.Diagnostics.Trace.WriteLine("----------");
 
             if (e.Result.Semantics != null && e.Result.Semantics.Count != 0)
             {
                 // Examples: 
                 //handleSpeech(RuchInput, RuchConfidence, e, "Aktywnosc");
-                //handleSpeech(WagaInput, WagaConfidence, e, "Waga");
-                //handleSpeech(WzrostInput, WzrostConfidence, e, "Wzrost");
-                //handleSpeech(PlecInput, PlecConfidence, e, "Plec");
-                //handleSpeech(WiekInput, WiekConfidence, e, "Wiek");
             }
 
         }
@@ -111,9 +91,8 @@ namespace SHSM
 
         private Grammar create()
         {
-            // for now loading grammer from file -> future db?
             SrgsDocument srgs = new SrgsDocument(@"../../../../grammar.grxml");
-            return new Grammar(srgs, "BMR");
+            return new Grammar(srgs, "SH");
         }
 
         private string GetValue(SemanticValue Semantics, string keyName)

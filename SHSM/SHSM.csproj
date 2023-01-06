@@ -9,9 +9,31 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\app_icon.png" />
+    <None Remove="Resources\background.jpg" />
+    <None Remove="Resources\closeBtn_default.png" />
+    <None Remove="Resources\closeBtn_MouseOver.png" />
+    <None Remove="Resources\nav_home.png" />
+    <None Remove="Resources\nav_info.png" />
+    <None Remove="Resources\nav_tgle_30.png" />
+    <None Remove="Resources\nav_tgl_hover.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Microsoft.Speech">
       <HintPath>..\..\..\..\..\..\Program Files\Microsoft SDKs\Speech\v11.0\Assembly\Microsoft.Speech.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\app_icon.png" />
+    <Resource Include="Resources\background.jpg" />
+    <Resource Include="Resources\closeBtn_default.png" />
+    <Resource Include="Resources\closeBtn_MouseOver.png" />
+    <Resource Include="Resources\nav_home.png" />
+    <Resource Include="Resources\nav_info.png" />
+    <Resource Include="Resources\nav_tgle_30.png" />
+    <Resource Include="Resources\nav_tgl_hover.png" />
   </ItemGroup>
 
 </Project>

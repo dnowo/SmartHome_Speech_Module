@@ -1,79 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<grammar xmlns="http://www.w3.org/2001/06/grammar" version="1.0" xml:lang="pl-PL" mode="voice" root="BMR" tag-format="semantics-ms/1.0">
-   <rule id="BMR" scope="public">
+<grammar xmlns="http://www.w3.org/2001/06/grammar" version="1.0" xml:lang="pl-PL" mode="voice" root="SH" tag-format="semantics-ms/1.0">
+   <rule id="SH" scope="public">
       <one-of>
          <item>
-            <ruleref uri="#id_Aktywnosc" />
-            <tag>$.Aktywnosc = $$;</tag>
+            <ruleref uri="#id_TurnOnLightInRoom" />
+            <tag>$.TurnOnLightInRoom = $$;</tag>
          </item>
-         <item>
-            <ruleref uri="#id_Wiek" />
-            <tag>$.Wiek = $$;</tag>
-         </item>
-         <item>
+  <!--       <item>
             <ruleref uri="#id_Waga" />
             <tag>$.Waga = $$;</tag>
-         </item>
-         <item>
-            <ruleref uri="#id_Wzrost" />
-            <tag>$.Wzrost = $$;</tag>
-         </item>
-         <item>
-            <ruleref uri="#id_Plec" />
-            <tag>$.Plec = $$;</tag>
-         </item>
-         <item>
-            <ruleref uri="#id_Wyczysc" />
-            <tag>$.Wyczysc = $$;</tag>
-         </item>
-         <item>
-            <ruleref uri="#id_Przelicz" />
-            <tag>$.Przelicz = $$;</tag>
-         </item>
+         </item> -->
       </one-of>
    </rule>
    <rule id="id_Przelicz" scope="private">Przelicz</rule>
-   <rule id="id_Wyczysc" scope="private">Wyczyść</rule>
-   <rule id="id_Aktywnosc" scope="private">
-      aktywność
+   <rule id="id_TurnOnLightInRoom" scope="private">
+      Włącz światło w
       <one-of>
-         <item>brak</item>
-         <item>niska</item>
-         <item>umiarkowana</item>
+         <item>salonie</item>
+         <item>kuchni</item>
+         <item>pokoju</item>
       </one-of>
    </rule>
-   <rule id="id_Plec" scope="private">
-      Płeć
-      <one-of>
-         <item>Kobieta</item>
-         <item>Mężczyzna</item>
-      </one-of>
-   </rule>
-   <rule id="id_Wzrost" scope="private">
-      Wzrost
-      <one-of>
-         <item>
-            <ruleref uri="#id_Numbers" />
-         </item>
-      </one-of>
-   </rule>
-   <rule id="id_Wiek" scope="private">
-      Wiek
-      <one-of>
-         <item>
-            <ruleref uri="#id_Numbers" />
-         </item>
-      </one-of>
-   </rule>
-   <rule id="id_Waga" scope="private">
+  <!-- <rule id="id_Waga" scope="private">
       Waga
       <one-of>
          <item>
-            <ruleref uri="#id_Numbers" />
+            <ruleref uri="#id_Percent" />
          </item>
       </one-of>
-   </rule>
-   <rule id="id_Numbers" scope="private">
+   </rule> -->
+   <rule id="id_Percent" scope="private">
       <one-of>
          <item>0</item>
          <item>1</item>
@@ -176,105 +132,6 @@
          <item>98</item>
          <item>99</item>
          <item>100</item>
-         <item>101</item>
-         <item>102</item>
-         <item>103</item>
-         <item>104</item>
-         <item>105</item>
-         <item>106</item>
-         <item>107</item>
-         <item>108</item>
-         <item>109</item>
-         <item>110</item>
-         <item>111</item>
-         <item>112</item>
-         <item>113</item>
-         <item>114</item>
-         <item>115</item>
-         <item>116</item>
-         <item>117</item>
-         <item>118</item>
-         <item>119</item>
-         <item>120</item>
-         <item>121</item>
-         <item>122</item>
-         <item>123</item>
-         <item>124</item>
-         <item>125</item>
-         <item>126</item>
-         <item>127</item>
-         <item>128</item>
-         <item>129</item>
-         <item>130</item>
-         <item>131</item>
-         <item>132</item>
-         <item>133</item>
-         <item>134</item>
-         <item>135</item>
-         <item>136</item>
-         <item>137</item>
-         <item>138</item>
-         <item>139</item>
-         <item>140</item>
-         <item>141</item>
-         <item>142</item>
-         <item>143</item>
-         <item>144</item>
-         <item>145</item>
-         <item>146</item>
-         <item>147</item>
-         <item>148</item>
-         <item>149</item>
-         <item>150</item>
-         <item>151</item>
-         <item>152</item>
-         <item>153</item>
-         <item>154</item>
-         <item>155</item>
-         <item>156</item>
-         <item>157</item>
-         <item>158</item>
-         <item>159</item>
-         <item>160</item>
-         <item>161</item>
-         <item>162</item>
-         <item>163</item>
-         <item>164</item>
-         <item>165</item>
-         <item>166</item>
-         <item>167</item>
-         <item>168</item>
-         <item>169</item>
-         <item>170</item>
-         <item>171</item>
-         <item>172</item>
-         <item>173</item>
-         <item>174</item>
-         <item>175</item>
-         <item>176</item>
-         <item>177</item>
-         <item>178</item>
-         <item>179</item>
-         <item>180</item>
-         <item>181</item>
-         <item>182</item>
-         <item>183</item>
-         <item>184</item>
-         <item>185</item>
-         <item>186</item>
-         <item>187</item>
-         <item>188</item>
-         <item>189</item>
-         <item>190</item>
-         <item>191</item>
-         <item>192</item>
-         <item>193</item>
-         <item>194</item>
-         <item>195</item>
-         <item>196</item>
-         <item>197</item>
-         <item>198</item>
-         <item>199</item>
       </one-of>
    </rule>
 </grammar>

@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Speech.Recognition;
 using Microsoft.Speech.Synthesis;
-using System;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Runtime.Intrinsics.X86;
@@ -30,6 +29,8 @@ namespace SHSM3
     {
         private static readonly Regex _regex = new Regex("[^0-9.-]+");
         private SpeechEngine speechEngine;
+        public Home homePage = new Home();
+        public Menu menuPage;
 
         public MainWindow()
         {
@@ -40,7 +41,9 @@ namespace SHSM3
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            menuPage = new Menu();
             speechEngine = new SpeechEngine(recognitionStatus);
+            mainFrame.Navigate(menuPage);
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -54,5 +57,29 @@ namespace SHSM3
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void closeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void windowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void homeClick(object sender, MouseButtonEventArgs e)
+        {
+            mainFrame.Navigate(homePage);
+        }
+
+        private void infoClick(object sender, MouseButtonEventArgs e)
+        {
+            //mainFrame.Navigate(infoPage);
+        }
+
+        private void listViewItem_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttHome.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
     }
 }

@@ -21,3 +21,5 @@ C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-
 C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\SHSM.pdb
 C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\SHSM.genruntimeconfig.cache
 C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\ref\SHSM.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\Home.g.cs
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\Home.baml
