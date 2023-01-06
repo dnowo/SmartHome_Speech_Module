@@ -50,6 +50,7 @@
                 </Grid.Background>
             </Grid>
 
+            <!-- Main Grid -->
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="65" />
@@ -65,7 +66,31 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
+                <!-- Room 1 info -->
+                <Grid Column="2" Row="0" RowSpan="2">
+                    <Rectangle Height="70" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                        <Rectangle.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#333" RenderingBias="Quality" ShadowDepth="1"/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+                    <Grid Margin="25" Height="100">
+                        <Grid Width="35" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 20">
+                            <Grid.Effect>
+                                <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Grid.Effect>
+                            <Image x:Name="kitchenLightImage" Source="Resources/light-bulb.png" Stretch="Uniform" Visibility="Collapsed"/>
+                        </Grid>
+                        <TextBlock Text="Światła" HorizontalAlignment="Right" FontFamily="Champagne &amp; Limousines" Margin="5" VerticalAlignment="Top" Foreground="Gray"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70 30 0 5">
+                            <TextBlock Name="kitchen" Text="Kuchnia " FontFamily="Champagne &amp; Limousines" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </Grid>
+
+           
+
+
         </Grid>
     </Grid>
 </Page>

@@ -41,9 +41,9 @@ namespace SHSM3
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            menuPage = new Menu();
-            homePage = new Home();
             speechEngine = new SpeechEngine(recognitionStatus);
+            menuPage = new Menu();
+            homePage = new Home(speechEngine);
             mainFrame.Navigate(homePage);
         }
 

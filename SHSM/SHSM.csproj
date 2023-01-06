@@ -13,6 +13,7 @@
     <None Remove="Resources\background.jpg" />
     <None Remove="Resources\closeBtn_default.png" />
     <None Remove="Resources\closeBtn_MouseOver.png" />
+    <None Remove="Resources\light-bulb.png" />
     <None Remove="Resources\nav_home.png" />
     <None Remove="Resources\nav_info.png" />
     <None Remove="Resources\nav_tgle_30.png" />
@@ -30,6 +31,7 @@
     <Resource Include="Resources\background.jpg" />
     <Resource Include="Resources\closeBtn_default.png" />
     <Resource Include="Resources\closeBtn_MouseOver.png" />
+    <Resource Include="Resources\light-bulb.png" />
     <Resource Include="Resources\nav_home.png" />
     <Resource Include="Resources\nav_info.png" />
     <Resource Include="Resources\nav_tgle_30.png" />
