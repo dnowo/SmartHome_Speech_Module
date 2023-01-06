@@ -29,7 +29,7 @@ namespace SHSM3
     {
         private static readonly Regex _regex = new Regex("[^0-9.-]+");
         private SpeechEngine speechEngine;
-        public Home homePage = new Home();
+        public Home homePage;
         public Menu menuPage;
 
         public MainWindow()
@@ -42,8 +42,9 @@ namespace SHSM3
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             menuPage = new Menu();
+            homePage = new Home();
             speechEngine = new SpeechEngine(recognitionStatus);
-            mainFrame.Navigate(menuPage);
+            mainFrame.Navigate(homePage);
         }
 
         private void Window_Closed(object sender, EventArgs e)
