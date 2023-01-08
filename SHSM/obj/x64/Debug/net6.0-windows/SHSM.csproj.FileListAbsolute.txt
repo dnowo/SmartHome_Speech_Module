@@ -23,3 +23,10 @@ C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-
 C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\ref\SHSM.dll
 C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\Home.g.cs
 C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\obj\x64\Debug\net6.0-windows\Home.baml
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\MySql.Data.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\ZstdNet.dll
+C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\bin\x64\Debug\net6.0-windows\BouncyCastle.Crypto.dll

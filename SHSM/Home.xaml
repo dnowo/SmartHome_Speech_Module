@@ -74,18 +74,42 @@
                         </Rectangle.Effect>
                     </Rectangle>
                     <Grid Margin="25" Height="100">
-                        <Grid Width="35" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 20">
+                        <Grid Width="35" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 10">
                             <Grid.Effect>
                                 <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
                             </Grid.Effect>
                             <Image x:Name="kitchenLightImage" Source="Resources/light-bulb.png" Stretch="Uniform" Visibility="Collapsed"/>
                         </Grid>
-                        <TextBlock Text="Światła" HorizontalAlignment="Right" FontFamily="Champagne &amp; Limousines" Margin="5" VerticalAlignment="Top" Foreground="Gray"/>
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70 30 0 5">
+                        <TextBlock Text="Światło" HorizontalAlignment="Left" FontFamily="Champagne &amp; Limousines" Margin="10" VerticalAlignment="Top" Foreground="Gray"/>
+                        <TextBlock Text="Jasność:" HorizontalAlignment="right" FontFamily="Champagne &amp; Limousines" Margin="0 10 30 0" VerticalAlignment="Top" Foreground="Gray"/>
+                        <TextBlock Name="brightnessKitchen" Text="100%" HorizontalAlignment="right" FontFamily="Champagne &amp; Limousines" Margin="0 10 0 0" VerticalAlignment="Top" Foreground="Gray"/>                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70 35 0 5">
                             <TextBlock Name="kitchen" Text="Kuchnia " FontFamily="Champagne &amp; Limousines" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
+
+                <Grid Column="1" Row="0" RowSpan="2">
+                    <Rectangle Height="70" Margin="20" Fill="White" RadiusY="10" RadiusX="10" >
+                        <Rectangle.Effect>
+                            <DropShadowEffect BlurRadius="20" Color="#333" RenderingBias="Quality" ShadowDepth="1"/>
+                        </Rectangle.Effect>
+                    </Rectangle>
+                    <Grid Margin="25" Height="100">
+                        <Grid Width="35" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0 0 10">
+                            <Grid.Effect>
+                                <DropShadowEffect BlurRadius="20" Color="#FFECECEC" RenderingBias="Quality" ShadowDepth="1"/>
+                            </Grid.Effect>
+                            <Image x:Name="dayRoomLightImage" Source="Resources/light-bulb.png" Stretch="Uniform" Visibility="Collapsed"/>
+                        </Grid>
+                        <TextBlock Text="Światło" HorizontalAlignment="Left" FontFamily="Champagne &amp; Limousines" Margin="10" VerticalAlignment="Top" Foreground="Gray"/>
+                        <TextBlock Text="Jasność:" HorizontalAlignment="right" FontFamily="Champagne &amp; Limousines" Margin="0 10 30 0" VerticalAlignment="Top" Foreground="Gray"/>
+                        <TextBlock Name="brightnessDayRoom" Text="100%" HorizontalAlignment="right" FontFamily="Champagne &amp; Limousines" Margin="0 10 0 0" VerticalAlignment="Top" Foreground="Gray"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70 35 0 5">
+                            <TextBlock Name="dayRoom" Text="Pokój dzienny " FontFamily="Champagne &amp; Limousines" VerticalAlignment="Center" Foreground="Gray" FontSize="20"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
             </Grid>
 
            

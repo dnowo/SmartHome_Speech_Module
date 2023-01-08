@@ -1,6 +1,7 @@
 ﻿using Microsoft.Speech.Recognition;
 using Microsoft.Speech.Recognition.SrgsGrammar;
 using Microsoft.Speech.Synthesis;
+using System;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
@@ -8,8 +9,10 @@ namespace SHSM
 {
     public partial class SpeechEngine
     {
-        private SpeechSynthesizer pTTS;
-        private SpeechRecognitionEngine pSRE;
+        private const double CONFIDENCE_LEVEL = 0.9;
+        
+        public SpeechSynthesizer pTTS;
+        public SpeechRecognitionEngine pSRE;
         private Ellipse recognitionIndicator;
 
         public delegate void SmartHomeEventHandler(object sender, SpeechRecognizedEventArgs e);
@@ -87,6 +90,18 @@ namespace SHSM
             if (Semantics.ContainsKey(keyName))
                 result = Semantics[keyName].Confidence.ToString("0.0000");
             return result;
+        }
+
+        public static bool existsAndConfident(SemanticValue Semantics, string keyName) {
+            string c = GetConfidence(Semantics, keyName);
+            if ((float) Convert.ToDouble(c) > CONFIDENCE_LEVEL)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

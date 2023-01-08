@@ -6,29 +6,61 @@
             <ruleref uri="#id_TurnOnLightInRoom" />
             <tag>$.TurnOnLightInRoom = $$;</tag>
          </item>
-  <!--       <item>
-            <ruleref uri="#id_Waga" />
-            <tag>$.Waga = $$;</tag>
-         </item> -->
-      </one-of>
-   </rule>
-   <rule id="id_Przelicz" scope="private">Przelicz</rule>
-   <rule id="id_TurnOnLightInRoom" scope="private">
-      Włącz światło w
-      <one-of>
-         <item>salonie</item>
-         <item>kuchni</item>
-         <item>pokoju</item>
-      </one-of>
-   </rule>
-  <!-- <rule id="id_Waga" scope="private">
-      Waga
-      <one-of>
          <item>
-            <ruleref uri="#id_Percent" />
+            <ruleref uri="#id_TurnOffLightInRoom" />
+            <tag>$.TurnOffLightInRoom = $$;</tag>
+         </item>
+		          <item>
+            <ruleref uri="#id_BrightnessInRoom" />
+            <tag>$.BrightnessInRoom = $$;</tag>
          </item>
       </one-of>
-   </rule> -->
+   </rule>
+   <rule id="id_TurnOffLightInRoom" scope="private">
+      <one-of>
+         <item>Wyłącz światło</item>
+         <item>
+            Wyłącz światło w
+            <one-of>
+               <item>salonie</item>
+               <item>kuchni</item>
+               <item>pokoju</item>
+            </one-of>
+         </item>
+      </one-of>
+   </rule>
+   <rule id="id_TurnOnLightInRoom" scope="private">
+      <one-of>
+         <item>Włącz światło</item>
+         <item>
+            Włącz światło w
+            <one-of>
+               <item>salonie</item>
+               <item>kuchni</item>
+               <item>pokoju</item>
+            </one-of>
+         </item>
+		 
+      </one-of>
+   </rule>
+   
+      <rule id="id_BrightnessInRoom" scope="private">
+      <one-of>
+         <item>Ustaw jasność</item>
+         <item>
+            Jasność w
+            <one-of>
+               <item>salonie</item>
+               <item>kuchni</item>
+               <item>pokoju</item>
+            </one-of>
+			<ruleref uri="#id_Percent" />
+			procent
+         </item>
+		 
+      </one-of>
+   </rule>
+   
    <rule id="id_Percent" scope="private">
       <one-of>
          <item>0</item>
