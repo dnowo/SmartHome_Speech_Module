@@ -3,18 +3,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
-using SHSM;
 
-namespace SHSM3
+namespace SHSM
 {
     public partial class MainWindow : Window
     {
-        public DatabaseDriver db;
-
-        private static readonly Regex _regex = new Regex("[^0-9.-]+");
-        private SpeechEngine speechEngine;
-        public Home homePage;
-        public Menu menuPage;
+        private SmartHome smartHome;
+        public Home HomePage;
+        public Menu MenuPage;
 
         public MainWindow()
         {
@@ -25,16 +21,15 @@ namespace SHSM3
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            speechEngine = new SpeechEngine(recognitionStatus);
-            db = new DatabaseDriver();
-            menuPage = new Menu();
-            homePage = new Home(speechEngine, db);
-            mainFrame.Navigate(homePage);
+            MenuPage = new Menu();
+            HomePage = new Home();
+            smartHome = new SmartHome(this);
+            mainFrame.Navigate(HomePage);
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closed(object? sender, EventArgs e)
         {
-            speechEngine.stopEngine();
+            smartHome.Stop();
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -48,22 +43,22 @@ namespace SHSM3
             Environment.Exit(0);
         }
 
-        private void windowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void WindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
 
-        private void homeClick(object sender, MouseButtonEventArgs e)
+        private void HomeClick(object sender, MouseButtonEventArgs e)
         {
-            mainFrame.Navigate(homePage);
+            mainFrame.Navigate(HomePage);
         }
 
-        private void infoClick(object sender, MouseButtonEventArgs e)
+        private void InfoClick(object sender, MouseButtonEventArgs e)
         {
             //mainFrame.Navigate(infoPage);
         }
 
-        private void listViewItem_MouseEnter(object sender, MouseEventArgs e)
+        private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
             ttHome.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }

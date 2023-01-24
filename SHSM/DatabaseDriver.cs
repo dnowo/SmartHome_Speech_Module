@@ -1,27 +1,18 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using SHSM.Devices;
 
 namespace SHSM
 {
-    public partial class DatabaseDriver
+    public class DatabaseDriver : DbContext
     {
-        public DatabaseDriver()
-        {
-            MySqlConnection connection = new MySqlConnection("server=localhost;database=smarthome;uid=root;pwd=\"\";");
-            try {
-                connection.Open();
-                System.Diagnostics.Trace.WriteLine("Connected to database: smarthome");
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Trace.WriteLine(ex);
-            }
-        }
+        public DbSet<Light> Lights { get; set; }
+        public DbSet<Door> Doors { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("server=localhost;database=smarthome;uid=root;pwd=\"\";");
+            System.Diagnostics.Trace.WriteLine("Connected to database: smarthome");
+        }
     }
 
 }

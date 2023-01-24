@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SHSM
-build_property.ProjectDir = C:\Users\Daniel\Desktop\SWPSD\SmartHome_Speech_Module\SHSM\
+build_property.ProjectDir = C:\Users\root\source\repos\SmartHome_Speech_Module\SHSM\
