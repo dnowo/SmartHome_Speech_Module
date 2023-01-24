@@ -1,24 +1,23 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace SHSM.Devices
 {
     public class Light : Device
     {
-        public override int Id { get; set; }
-        public override string Name { get; set; }
-        public override string Type { get; set; }
-        public override string Place { get; set; }
-        public override bool State { get; set; }
-
-        [NotMapped]
-        public override Image Image { get; set; }
-
         public int NumericalState { get; set; }
 
         public Light()
         {
-            Type = "light";
+            Type = Type.LIGHT;
+            Image = new Image();
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri("C:\\Users\\Daniel\\Desktop\\SWPSD\\SmartHome_Speech_Module\\SHSM\\Resources\\light-bulb.png");
+            bi.EndInit();
+            Image.Source = bi;
         }
     }
 }

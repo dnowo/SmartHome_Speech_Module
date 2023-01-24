@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
+using EnumsNET;
 using SHSM.Devices;
 
 namespace SHSM
@@ -27,32 +28,32 @@ namespace SHSM
 
         private void LoadData()
         {
-            devices = (List<Device>)devices.Concat(databaseDriver.Lights.Cast<Device>().ToList());
-            devices = (List<Device>)devices.Concat(databaseDriver.Doors.Cast<Device>().ToList());
+            devices = databaseDriver.Devices.ToList();
+            mainWindow.HomePage.SetDevices(devices);
         }
 
         private void PopulateDatabase()
         {
             // TODO obrazki będzie trzeba tworzyć w kodzie na podstawie typu, że jak light to żarówka i podpinać, a potem WPF niech zasysa z programu
-            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = "kitchen", Image = mainWindow.HomePage.kitchenLightImage});
-            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = "dayroom", Image = mainWindow.HomePage.dayRoomLightImage});
-
-            databaseDriver.Doors.Add(new Door{Name = "Drzwi", Place = "dayroom", Image = mainWindow.HomePage.dayRoomLightImage});
-
+            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = Devices.Place.KITCHEN, Image = mainWindow.HomePage.kitchenLightImage});
+            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = Devices.Place.DAYROOM, Image = mainWindow.HomePage.dayRoomLightImage});
+            databaseDriver.Doors.Add(new Door{Name = "Drzwi", Place = Devices.Place.DAYROOM, Image = mainWindow.HomePage.dayRoomLightImage});
             databaseDriver.SaveChanges();
         }
 
         public void SetDeviceState(string type, string place, bool state)
         {
             // TODO Zlokalizuj odpowiedni device i ustaw mu state, zapisz do bazy
-            Device device = devices.FirstOrDefault((System.Func<Device, bool>)(device => device.Type == type && device.Place == place));
+            Device device = devices.FirstOrDefault(device => device.Type.AsString(EnumFormat.Description) == type
+                && device.Place.AsString(EnumFormat.Description) == place);
             device.Image.Visibility = state ? Visibility.Visible : Visibility.Hidden;
         }
 
         public void SetDeviceNumericalState(string type, string place, int state)
         {
             // TODO Zlokalizuj odpowiedni device, w zależności od jego typu ustaw mu odpowiedni property, zapisz do bazy
-            Device device = devices.FirstOrDefault((System.Func<Device, bool>)(device => device.Type == type && device.Place == place));
+            Device device = devices.FirstOrDefault(device => device.Type.AsString(EnumFormat.Description) == type
+                && device.Place.AsString(EnumFormat.Description) == place);
             device.GetType().GetProperty("NumericalState")?.SetValue(device, state);
         }
 

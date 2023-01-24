@@ -5,13 +5,13 @@ namespace SHSM.Devices
 {
     public abstract class Device
     {
-        public abstract int Id { get; set; }
-        public abstract string Name { get; set; }
-        public abstract string Type { get; set; }
-        public abstract string Place { get; set; }
-        public abstract bool State { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Type Type { get; set; }
+        public Place Place { get; set; }
+        public bool State { get; set; }
 
         [NotMapped]
-        public abstract Image Image { get; set; }
+        public Image Image { get; set; }
     }
 }
