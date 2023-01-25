@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using SHSM.Devices;
 
 namespace SHSM
 {
@@ -50,17 +51,67 @@ namespace SHSM
 
         private void HomeClick(object sender, MouseButtonEventArgs e)
         {
-            mainFrame.Navigate(HomePage);
+            HomePage.PlaceToShow = Place.ALL;
         }
 
-        private void InfoClick(object sender, MouseButtonEventArgs e)
-        {
-            //mainFrame.Navigate(infoPage);
-        }
-
-        private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
+        private void Home_MouseEnter(object sender, MouseEventArgs e)
         {
             ttHome.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void KitchenClick(object sender, MouseButtonEventArgs e)
+        {
+            HomePage.PlaceToShow = Place.KITCHEN;
+        }
+
+        private void Kitchen_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttKitchen.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void DayroomClick(object sender, MouseButtonEventArgs e)
+        {
+            HomePage.PlaceToShow = Place.DAYROOM;
+        }
+
+        private void Dayroom_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttDayroom.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void LivingroomClick(object sender, MouseButtonEventArgs e)
+        {
+            HomePage.PlaceToShow = Place.LIVINGROOM;
+        }
+
+        private void Livingroom_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttLivingroom.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void BathroomClick(object sender, MouseButtonEventArgs e)
+        {
+            HomePage.PlaceToShow = Place.BATHROOM;
+        }
+
+        private void Bathroom_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttBathroom.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void HallClick(object sender, MouseButtonEventArgs e)
+        {
+            HomePage.PlaceToShow = Place.HALL;
+        }
+
+        private void Hall_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttHall.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
+        }
+
+        private void Speech_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ttSpeech.Visibility = toggleBtn.IsChecked == true ? Visibility.Collapsed : Visibility.Visible;
         }
     }
 }

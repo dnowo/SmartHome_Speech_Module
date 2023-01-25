@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SHSM.Devices;
-using System.Diagnostics.Contracts;
 
 namespace SHSM
 {
@@ -12,7 +11,7 @@ namespace SHSM
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;database=smarthome;uid=root;pwd=\"\";");
+            optionsBuilder.UseMySQL("server=localhost;database=smarthome;uid=sh;pwd=\"pass\";");
             System.Diagnostics.Trace.WriteLine("Connected to database: smarthome");
         }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
+﻿using System.Linq;
 using System.Windows.Media;
 using EnumsNET;
 using SHSM.Devices;
@@ -13,7 +11,7 @@ namespace SHSM
         private readonly DatabaseDriver databaseDriver;
         private readonly MainWindow mainWindow;
 
-        private List<Device> devices = new();
+        private TrulyObservableCollection<Device> devices = new();
 
         public SmartHome(MainWindow mainWindow)
         {
@@ -22,39 +20,50 @@ namespace SHSM
             databaseDriver.Database.EnsureCreated();
             this.mainWindow = mainWindow;
 
-            LoadData();
             // PopulateDatabase();
+            LoadData();
         }
 
         private void LoadData()
         {
-            devices = databaseDriver.Devices.ToList();
+            devices = new TrulyObservableCollection<Device>(databaseDriver.Devices);
             mainWindow.HomePage.SetDevices(devices);
         }
 
         private void PopulateDatabase()
         {
-            // TODO obrazki będzie trzeba tworzyć w kodzie na podstawie typu, że jak light to żarówka i podpinać, a potem WPF niech zasysa z programu
-            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = Devices.Place.KITCHEN, Image = mainWindow.HomePage.kitchenLightImage});
-            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = Devices.Place.DAYROOM, Image = mainWindow.HomePage.dayRoomLightImage});
-            databaseDriver.Doors.Add(new Door{Name = "Drzwi", Place = Devices.Place.DAYROOM, Image = mainWindow.HomePage.dayRoomLightImage});
+            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = Devices.Place.KITCHEN, NumericalState = 50});
+            databaseDriver.Lights.Add(new Light{Name = "Światło", Place = Devices.Place.DAYROOM});
+            databaseDriver.Doors.Add(new Door{Name = "Drzwi", Place = Devices.Place.DAYROOM});
             databaseDriver.SaveChanges();
         }
 
         public void SetDeviceState(string type, string place, bool state)
         {
-            // TODO Zlokalizuj odpowiedni device i ustaw mu state, zapisz do bazy
-            Device device = devices.FirstOrDefault(device => device.Type.AsString(EnumFormat.Description) == type
-                && device.Place.AsString(EnumFormat.Description) == place);
-            device.Image.Visibility = state ? Visibility.Visible : Visibility.Hidden;
+            if (!devices.Any(device => device.Type.AsString(EnumFormat.Description) == type
+                                       && device.Place.AsString(EnumFormat.Description) == place))
+            {
+                return;
+            }
+
+            Device device = devices.First(device => device.Type.AsString(EnumFormat.Description) == type 
+                                                    && device.Place.AsString(EnumFormat.Description) == place);
+            device.State = state;
+            databaseDriver.SaveChanges();
         }
 
         public void SetDeviceNumericalState(string type, string place, int state)
         {
-            // TODO Zlokalizuj odpowiedni device, w zależności od jego typu ustaw mu odpowiedni property, zapisz do bazy
-            Device device = devices.FirstOrDefault(device => device.Type.AsString(EnumFormat.Description) == type
-                && device.Place.AsString(EnumFormat.Description) == place);
+            if (!devices.Any(device => device.Type.AsString(EnumFormat.Description) == type
+                                       && device.Place.AsString(EnumFormat.Description) == place))
+            {
+                return;
+            }
+
+            Device device = devices.First(device => device.Type.AsString(EnumFormat.Description) == type 
+                                                    && device.Place.AsString(EnumFormat.Description) == place);
             device.GetType().GetProperty("NumericalState")?.SetValue(device, state);
+            databaseDriver.SaveChanges();
         }
 
         public void IndicateSpeechRecognition(bool speechRecognition)

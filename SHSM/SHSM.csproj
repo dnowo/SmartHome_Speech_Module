@@ -11,9 +11,19 @@
   <ItemGroup>
     <None Remove="Resources\app_icon.png" />
     <None Remove="Resources\background.jpg" />
+    <None Remove="Resources\bathroom.png" />
     <None Remove="Resources\closeBtn_default.png" />
     <None Remove="Resources\closeBtn_MouseOver.png" />
+    <None Remove="Resources\dayroom.png" />
+    <None Remove="Resources\door_closed.png" />
+    <None Remove="Resources\door_opened.png" />
+    <None Remove="Resources\hall.png" />
+    <None Remove="Resources\home.png" />
+    <None Remove="Resources\kitchen.png" />
     <None Remove="Resources\light-bulb.png" />
+    <None Remove="Resources\light_off.png" />
+    <None Remove="Resources\light_on.png" />
+    <None Remove="Resources\livingroom.png" />
     <None Remove="Resources\nav_home.png" />
     <None Remove="Resources\nav_info.png" />
     <None Remove="Resources\nav_tgle_30.png" />
@@ -36,9 +46,19 @@
   <ItemGroup>
     <Resource Include="Resources\app_icon.png" />
     <Resource Include="Resources\background.jpg" />
+    <Resource Include="Resources\bathroom.png" />
     <Resource Include="Resources\closeBtn_default.png" />
     <Resource Include="Resources\closeBtn_MouseOver.png" />
+    <Resource Include="Resources\dayroom.png" />
+    <Resource Include="Resources\door_closed.png" />
+    <Resource Include="Resources\door_opened.png" />
+    <Resource Include="Resources\hall.png" />
+    <Resource Include="Resources\home.png" />
+    <Resource Include="Resources\kitchen.png" />
     <Resource Include="Resources\light-bulb.png" />
+    <Resource Include="Resources\light_off.png" />
+    <Resource Include="Resources\light_on.png" />
+    <Resource Include="Resources\livingroom.png" />
     <Resource Include="Resources\nav_home.png" />
     <Resource Include="Resources\nav_info.png" />
     <Resource Include="Resources\nav_tgle_30.png" />
